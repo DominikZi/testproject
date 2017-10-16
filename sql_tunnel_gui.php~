@@ -1,0 +1,30 @@
+<?php
+session_start();
+/*
+
+	Released under DWTFYW-2.0 License (aka CCBY0). Provided as is by Dominik Ziegenhagel (info@ziegenhagel.com)
+
+*/
+
+echo "<h2>SQl Tunnel GUI V0.11</h2><hr>Rückgabe:<br>";
+
+if($_GET["action"]=="logout")
+	$_SESSION["hash"]=null;
+  	$ch = curl_init();
+  	curl_setopt($ch, CURLOPT_URL, "http://localhost/");
+  	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+  	$output = curl_exec($ch);
+  	curl_close($ch);   
+
+echo "<hr>";
+
+if(strlen($_SESSION["hash"])) {
+	?>
+	<form method="post">
+		<input name="login_uname" placeholder="Username">
+		<input name="login_pass" placeholder="Password">
+	</form>
+	<?php
+} else {
+
+}

@@ -1,0 +1,1 @@
+﻿select * from abc.def where 1
